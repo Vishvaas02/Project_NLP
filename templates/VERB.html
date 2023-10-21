@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>ಕ್ರಿಯಾಪದ</title>
+	<style>
+	ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover:not(.active) {
+  background-color: #111;
+}
+
+.active {
+  background-color: #4CAF50;
+}
+h1 {
+  text-align: center;
+  text-transform: uppercase;
+  color: #4CAF50;
+}
+h3 {
+  text-align: center;
+  text-transform: uppercase;
+  color: #4CAF50;
+}
+
+</style>
+</head>
+
+<body>
+        <h1 style="text-align: center"> <a href="http://localhost:5000/home" style="text-decoration: none">ಕನ್ನಡ ನಿಘಂಟು </a></h1>
+    <ul>
+  <li><a class="active" href="/HOME">Lexicon Builder</a></li>
+  <li><a href="/VIEW">View lexicon Output File</a></li>
+  <li style="float:right"><a href="/">HomePage</a></li>
+</ul>
+    <form method="POST" action="http://localhost:5000/result2">
+	<h3>
+        
+        {{ form.hidden_tag()}}
+
+        <fieldset class="form-group">
+
+            <legend class="border bottom mb-4">ಕ್ರಿಯಾಪದ</legend>
+            
+            <div class="form-group">
+                {{ form.Verb_word.label(class_="form-control-label",required='required')    }}
+                {{ form.Verb_word(class="form-control form-control-lg ",required='required')    }}
+            </div>
+
+            <br>
+            
+            <div class="form-group">
+                    {{ form.Present_tense.label(class="form-control form-control-lg ")    }}
+                    <select name='Present_tense' method="POST" action="/">
+                        {% for Present in Present_tense %}
+                        <option value= "{{Present}}" SELECTED>{{Present}}</option>"
+                        {% endfor %}
+                    </select>
+            </div>
+
+            <br>
+
+            <div class="form-group">
+                    {{ form.Future_tense.label(class="form-control form-control-lg ")    }}
+                    <select name='Future_tense' method="POST" action="/">
+                        {% for Future in Future_tense %}
+                        <option value= "{{Future}}" SELECTED>{{Future}}</option>"
+                        {% endfor %}
+                    </select>
+            </div>
+
+            <br>
+
+            <div class="form-group">
+                    {{ form.Past_tense.label(class="form-control form-control-lg ")    }}
+                    <select name='Past_tense' method="POST" action="/">
+                        {% for Past in Past_tense %}
+                        <option value= "{{Past}}" SELECTED>{{Past}}</option>"
+                        {% endfor %}
+                    </select>
+            </div>
+
+            
+            
+
+        </fieldset>
+
+        <div class="form-group">
+            {{  form.submit(class='btn btn-outline-info') }}
+            <b><input type="button" onclick=window.location.href='{{ url_for('home')}}' name="ಮುಖಪುಟ" value="ಮುಖಪುಟ">     
+    </div>
+
+
+
+    </form>
+
+    
+</body>
+
+</html>

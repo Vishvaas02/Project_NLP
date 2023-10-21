@@ -1,0 +1,114 @@
+<html>
+<head>
+<style>
+.button {
+  display: inline-block;
+  border-radius: 4px;
+  background-color: #f4511e;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 18px;
+  padding: 5px;
+  width: 80px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-right: 25px;
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 2rem 1.5rem;
+  font: 1rem/1.5 "PT Sans", Arial, sans-serif;
+  color: #5a5a5a;
+}
+
+h1 {
+  text-align: center;
+  text-transform: uppercase;
+  color: #4CAF50;
+}
+h3 {
+  text-align: center;
+  text-transform: uppercase;
+  color: #4CAF50;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover:not(.active) {
+  background-color: #111;
+}
+
+.active {
+  background-color: #4CAF50;
+}
+</style>
+<center>
+<h1>Morphological Stemmer</h1>
+<body>
+<ul>
+  <li><a class="active" href="/stemmerview"> View Stemmer output file</a></li>
+  <li><a href="/Morphologicalanalyzer">MorphologicalAnalyzer</a></li>
+  <li style="float:right"><a href="/">HomePage</a></li>
+</ul>
+<form action="/MorphologicalStemmer" method="post">
+<br><br>
+<h3>Select Filename_Normunqtokenout.txt File</h3>
+<input type="file" name="f1" accept="text/plain"><br><br>
+<button class="button" style="vertical-align:middle"><span>ಸಲ್ಲಿಸು</span></button>
+
+</form>
+</body>
+</center>
+</html>

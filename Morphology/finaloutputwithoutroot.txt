@@ -1,0 +1,22 @@
+TOKEN_NO	PREFIX	STEM	SUFFIX	STATUS
+1	ಅಂಗವಾಗಿ	Root word is not in the lexicon
+1	ಅಂಗವಾಗಿ	-	ಅಂಗ	ವಾಗಿ	Root word is not in the lexicon
+2	ಅಹ	Root word is not in the lexicon
+3	ಇತರ	-	ಇತ	ರ	Root word is not in the lexicon
+4	ಎಂಥ	Root word is not in the lexicon
+8	ಕೇವಲ	Root word is not in the lexicon
+9	ಜೊತೆ	Root word is not in the lexicon
+10	ತುಂಬಾ	Root word is not in the lexicon
+12	ಬಗ್ಗೆ	-	ಬಗ್	ಗೆ	Root word is not in the lexicon
+13	ಬಹಳ	-	ಬಹ	ಳ	Root word is not in the lexicon
+14	ಮಥಿತೀಥರ	-	ಮಥಿತೀಥ	ರ	Root word is not in the lexicon
+15	ಮಥಿತು	Root word is not in the lexicon
+16	ಮಾತ್ರ	-	ಮಾತ್	ರ	Root word is not in the lexicon
+17	ಮುಖ್ಯ	-	ಮುಖ್	ಯ	Root word is not in the lexicon
+17	ಮುಖ್ಯ	-	ಮುಖ್	ಯ	Root word is not in the lexicon
+18	ಮುಲಕ	Root word is not in the lexicon
+19	ಮೊದಲ	Root word is not in the lexicon
+20	ವಿವಿಧ	Root word is not in the lexicon
+21	ಹಲವಾರು	-	ಹಲವಾ	ರು	Root word is not in the lexicon
+22	ಹಾಗು	Root word is not in the lexicon
+23	ಹೊಸ	Root word is not in the lexicon

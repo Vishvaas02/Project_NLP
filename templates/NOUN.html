@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<style>
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover:not(.active) {
+  background-color: #111;
+}
+
+.active {
+  background-color: #4CAF50;
+}
+h1 {
+  text-align: center;
+  text-transform: uppercase;
+  color: #4CAF50;
+}
+h3 {
+  text-align: center;
+  text-transform: uppercase;
+  color: #4CAF50;
+}
+
+</style>
+<head>
+    <title>ನಾಮಪದ</title>
+</head>
+
+<body>
+        <h1 style="text-align: center"> <a href="http://localhost:5000/home" style="text-decoration: none">ಕನ್ನಡ ನಿಘಂಟು</a></h1>
+    <ul>
+  <li><a class="active" href="/HOME">Lexicon</a></li>
+  <li><a href="/VIEW">View lexicon Output File</a></li>
+  <li style="float:right"><a href="/">HomePage</a></li>
+</ul>
+    <form method="POST" action="http://localhost:5000/result1">
+	<h3>
+        
+        {{ form.hidden_tag()}}
+
+        <fieldset class="form-group">
+
+            <legend class="border bottom mb-4">ನಾಮಪದ</legend>
+            
+            <div class="form-group">
+                {{ form.Noun_word.label(class_="form-control-label",required='required')}}
+                {{ form.Noun_word(class="form-control form-control-lg ",required='required')    }}
+            </div>
+
+            <br>
+
+            <div class="form-group">
+                    {{ form.Genders.label(class="form-control form-control-lg ")    }}
+                    <select name='Genders' method="POST" action="/">
+                        {% for Gender in Genders %}
+                        <option value= "{{Gender}}" SELECTED>{{Gender}}</option>"
+                        {% endfor %}
+                    </select>
+            </div>
+
+            <br>
+
+            
+            <div class="form-group">
+                    {{ form.Noun_categories.label(class="form-control form-control-lg ")    }}
+                    <select name='Noun_categories' method="POST" action="/">
+                        {% for Noun_category in Noun_categories %}
+                        <option value= "{{Noun_category}}" SELECTED>{{Noun_category}}</option>"
+                        {% endfor %}
+                    </select>
+            </div>
+
+            
+
+        </fieldset>
+
+        <div class="form-group">
+            {{  form.submit() }}
+            <input type="button" onclick=window.location.href='{{ url_for('home')}}' name="ಮುಖಪುಟ" value="ಮುಖಪುಟ">
+        </div>
+
+
+
+    </form>
+
+    
+    
+</body>
+
+</html>

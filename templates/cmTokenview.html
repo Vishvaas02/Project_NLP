@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<style>
+.button {
+  display: inline-block;
+  border-radius: 4px;
+  background-color: #f4511e;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 18px;
+  padding: 5px;
+  width: 80px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-right: 25px;
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 2rem 1.5rem;
+  font: 1rem/1.5 "PT Sans", Arial, sans-serif;
+  color: #5a5a5a;
+}
+
+h1 {
+  text-align: center;
+  text-transform: uppercase;
+  color: #4CAF50;
+}
+.monospace {
+  font-family: "Lucida Console", Courier, monospace;
+}
+
+table, td, th {  
+  border: 2px solid #ddd;
+  text-align: left;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  padding: 8px;
+}
+
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover:not(.active) {
+  background-color: #111;
+}
+
+.active {
+  background-color: #4CAF50;
+}
+
+</style>
+<script type="text/javascript">
+    function Upload() {
+        var fileUpload = document.getElementById("fileUpload");
+        var regex = /^([a-zA-Z0-9\s_\\.\-:])+(.txt)$/;
+        if (regex.test(fileUpload.value.toLowerCase())) {
+            if (typeof (FileReader) != "undefined") {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    var table = document.createElement("table");
+                    var rows = e.target.result.split("\n");
+
+                    var row = table.insertRow(-1);
+                    var cell = row.insertCell(-1);
+                    cell.innerHTML = "Count";
+                    var cell = row.insertCell(-1);
+                    cell.innerHTML = rows.length-2;
+
+                    for (var i = 0; i < rows.length; i++) {
+                        var cells = rows[i].split("\t");
+                        if (cells.length > 1) {
+                            var row = table.insertRow(-1);
+                            for (var j = 0; j < cells.length; j++) {
+                                var cell = row.insertCell(-1);
+                                cell.innerHTML = cells[j];
+                            }
+                        }
+                    }
+                    var dvCSV = document.getElementById("dvCSV");
+                    dvCSV.innerHTML = "";
+                    dvCSV.appendChild(table);
+                }
+                reader.readAsText(fileUpload.files[0]);
+            } else {
+                alert("This browser does not support HTML5.");
+            }
+        } else {
+            alert("Please upload a valid TXT file.");
+        }
+    }
+</script>
+<body>
+<ul>
+  <li><a class="active" href="/cmTokenization">Tokenizer</a></li>
+  <li><a href="/HOME">Lexicon Builder</a></li>
+  <li style="float:right"><a href="/">HomePage</a></li>
+</ul>
+<h3 class= "monospace"> To View Morphological Analyzer Output File Select Filename_cmfinaloutputwithroots.txt </h3>
+<h3 class= "monospace"> To View Morphological Analyzer Output File Select Finalname_cmfinaloutputwithoutroot.txt  for no root words</h3>
+<hr />
+<input type="file" id="fileUpload" /><br>
+
+<button class="button" style="vertical-align:middle" id="upload"  onclick="Upload()"><span>ಸಲ್ಲಿಸು</span></button>
+<hr />
+<div id="dvCSV">
+</div>
+
+</body>
+
+</html>
